@@ -40,6 +40,9 @@ Have fun using this as a template and source of information for your first pract
 ├── src                <- Source code for use in this project.
 │   ├── __init__.py    <- Makes src a Python module
 │   │
+│   ├── conf           <- Store the configurations of your experiments (Hydra's yaml files )
+│   │   └── train_linear.yaml
+│   │
 │   ├── data           <- Scripts to download or generate data
 │   │   └── make_dataset.py
 │   │
