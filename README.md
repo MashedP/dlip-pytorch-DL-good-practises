@@ -15,7 +15,10 @@ Have fun using this as a template and source of information for your first pract
 
 This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
-```
+
+
+
+------------
 ├── LICENSE            <- Information about the license of your code. Companies may have guidelines on how to license code. [See more here](https://choosealicense.com/)
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
@@ -54,7 +57,7 @@ This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookie
 │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
 │       └── visualize.py
 
-```
+------------
 
 # Collaborative Work 
 
