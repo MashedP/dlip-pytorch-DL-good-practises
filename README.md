@@ -11,14 +11,11 @@ Have fun using this as a template and source of information for your first pract
 
 *Inspired by [Solal Nathan's presentation](https://hebergement.universite-paris-saclay.fr/sepag/2023_05_24_Programming_Project_Management.pdf) on Programming project management*
 
-# General information
-
-This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
+# Project Organization
 
 
 
-
-------------
+```
 ├── LICENSE            <- Information about the license of your code. Companies may have guidelines on how to license code. [See more here](https://choosealicense.com/)
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
@@ -57,7 +54,10 @@ This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookie
 │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
 │       └── visualize.py
 
-------------
+```
+
+
+This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
 # Collaborative Work 
 
@@ -83,4 +83,16 @@ When we perform deep learning tasks, we often need to run multiple experiments
 [Hydra](https://hydra.cc/docs/intro/) is a python package to handle parsing and configuration files 
 	- basé sur [OmegaConf](https://github.com/omry/omegaconf)
 
-Package your code ! 
+## Code Packaging 
+
+In python, the best way to load a module is to package it and install it.  There are several library for packaging code. Here we use [SetupTools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html)
+
+
+
+After setting up your project, simply go to `\src` and launch
+
+```pip install -r requirements.txt  install -e . ```
+
+You will be able to load the package inside the notebook. 
+
+[More info on packaging](https://packaging.python.org/en/latest/)
