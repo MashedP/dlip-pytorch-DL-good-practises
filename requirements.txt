@@ -1,0 +1,6 @@
+torch
+torchvision
+jupyter 
+matplotlib
+hydra-core
+setuptools

@@ -36,9 +36,9 @@ Have fun using this as a template and source of information for your first pract
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
 │                         generated with `pip freeze > requirements.txt` Install the requirements by hand using `pip install -r requirements.txt`
 │
-├── setup.py           <- Make this project pip installable with `pip install -e`
-├── src                <- Source code for use in this project.
-│   ├── __init__.py    <- Makes src a Python module
+├── pyproject.toml     <- Make this project pip installable with `pip install -e`
+├── src/dlip           <- Source code for use in this project. The folder `dlip` is the package name you import
+│   ├── __init__.py    <- Makes dlip a Python module
 │   │
 │   ├── conf           <- Store the configurations of your experiments (Hydra's yaml files )
 │   │   └── train_linear.yaml

@@ -6,6 +6,7 @@ import mlflow.pytorch
 from torch.utils.data import DataLoader
 from omegaconf import DictConfig
 ## TODO Improve and make self-sustained
+## TODO Remove Pytorch Lightning
 
 @hydra.main(version_base=None, config_path="../conf", config_name="train_model") 
 # This decorator add the parameter "cfg" to the launch function 
@@ -31,7 +32,7 @@ def launch(cfg: DictConfig):
     )
     mlf_logger.log_hyperparams(cfg)
     x_shape, y_shape = train_dataset[0][0].size(dim=0), train_dataset[0][1].size(dim=0)
-    model = LinearPositive(x_shape, y_shape, lr=cfg.lr, alpha_l1=cfg.alpha_l1)
+    model = (x_shape, y_shape, lr=cfg.lr, alpha_l1=cfg.alpha_l1)
     trainer = pl.Trainer(
         max_epochs=cfg.max_epochs,
         devices="auto",
