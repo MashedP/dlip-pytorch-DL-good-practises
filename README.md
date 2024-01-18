@@ -67,7 +67,7 @@ This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookie
 ## Git Versioning
 
 .gitkeep files are super useful to commit an empty folder
-.gitignore are useful to exclude elements from the versioning ( heavy datasets for example) 
+.gitignore are useful to exclude elements from the versioning ( heavy datasets for example) See templates of gitignore for your projects [here](https://github.com/github/gitignore)
 
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) Commits are traces of your changes on the project. Standards in commits leads to better communication between the actors of projects. Extensions exists for multiple projects 
 
