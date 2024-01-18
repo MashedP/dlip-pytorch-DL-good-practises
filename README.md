@@ -11,6 +11,16 @@ Have fun using this as a template and source of information for your first pract
 
 *Inspired by [Solal Nathan's presentation](https://hebergement.universite-paris-saclay.fr/sepag/2023_05_24_Programming_Project_Management.pdf) on Programming project management*
 
+# TODO
+- [x] Packaging
+- [ ] Hydra
+- [ ] Mlflow
+- [ ] Pytorch Trainer
+- [ ] Pytorch Model
+- [ ] Evaluation 
+- [ ] Load Models from checkpoints 
+
+
 # Project Organization
 
 
