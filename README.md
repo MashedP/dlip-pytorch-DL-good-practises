@@ -1,4 +1,4 @@
-# Dlip TP1 - Introduction to Pytorch and practises
+# Dlip TP1 - Introduction to Pytorch and good practises
 Welcome !
 
 In this repository, you will find useful information  on good practises for Deep Learning research and developement projects.   
