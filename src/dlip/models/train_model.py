@@ -1,14 +1,13 @@
 import logging
+import os
 
 import hydra
 import torch
-from dlip.models.models import LinearModel
-from dlip.utils.load_data import load_dataset
+from dlip.data.data import load_dataset
+from dlip.models.models import LinearModel, save_model
+from hydra import utils
 from omegaconf import DictConfig
-from torch.utils.data import DataLoader,random_split
-
-## TODO Improve and make self-sustained
-## TODO Remove Pytorch Lightning
+from torch.utils.data import DataLoader, random_split
 
 
 def train(num_epochs, batch_size, criterion, optimizer, model, dataset):
@@ -40,12 +39,13 @@ def train(num_epochs, batch_size, criterion, optimizer, model, dataset):
     return train_error
 
 
-@hydra.main(version_base=None, config_path="../conf", config_name="train_model")
+@hydra.main(config_path="../conf", config_name="train_model")
 # This decorator add the parameter "cfg" to the launch function
 # the cfg object is an instance of the DictConfig class. You can think of it as a dictionnary , when dic['key'] is accessible as the( dict.key)
 # cfg is loaded from the yaml file at path ../conf/train_model.yaml
 def launch(cfg: DictConfig):
-    dataset = load_dataset(cfg.data_path)
+    working_dir = os.getcwd()
+    dataset = load_dataset(utils.get_original_cwd() + cfg.data_path)
     train_set, val_set = random_split(dataset, [6000, 1291])
     model = LinearModel(16 * 16, 10)
 
@@ -54,16 +54,14 @@ def launch(cfg: DictConfig):
 
     # Use SGD optimizer with a learning rate of 0.01
     # It is initialized on our model
-    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+    optimizer = torch.optim.SGD(model.parameters(), lr=cfg.lr)
 
-    train_error = train(
-        cfg.num_epochs, cfg.batch_size, criterion, optimizer, model, train_set
-    )
-    # TODO save the model
+    train(cfg.num_epochs, cfg.batch_size, criterion, optimizer, model, train_set)
+    logging.info(f"Checkpoint is saved at {working_dir}")
+    save_model(working_dir + "/checkpoint.pt", model)
+
     # TODO Maybe improve the logging of the training loop ?
     # TODO Vizualisation methods ?
-
-    # vizualise_error(train_error,cfg)
 
 
 if __name__ == "__main__":

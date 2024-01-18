@@ -15,10 +15,10 @@ Have fun using this as a template and source of information for your first pract
 - [x] Packaging
 - [x] Hydra
 - [ ] Mlflow
-- [ ] Pytorch Trainer
-- [ ] Pytorch Model
+- [x] Pytorch Trainer
+- [x] Pytorch Model
 - [ ] Evaluation 
-- [ ] Load Models from checkpoints 
+- [x] Save and load Models from checkpoints 
 
 
 # Project Organization
@@ -72,7 +72,7 @@ Have fun using this as a template and source of information for your first pract
 
 This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
-
+The template by default contains code from the first exercise of Tp1. 
 
 # Collaborative Work 
 
@@ -117,6 +117,8 @@ or with a different batch size :
 It is very helpful when you have to perform sweeps on hyper-parameters. Configurations and values of hyperparameters for training, such as batch-size, learning rate, optimizers are stored in a yaml file ```src/dlip/conf/train_model.yaml```.
 
 You can access the configuration & outputs of previously run scripts by default in the ```outputs``` folder.
+
+More info on how to setup hydra for your projects [here](https://towardsdatascience.com/complete-tutorial-on-how-to-use-hydra-in-machine-learning-projects-1c00efcc5b9b)
 
 ## Logging experiment
 
