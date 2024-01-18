@@ -4,6 +4,7 @@ import mlflow
 import mlflow.pytorch
 
 from torch.utils.data import DataLoader
+from .utils.load_data import load_datasets
 from omegaconf import DictConfig
 ## TODO Improve and make self-sustained
 ## TODO Remove Pytorch Lightning
@@ -13,19 +14,13 @@ from omegaconf import DictConfig
 # the cfg object is an instance of the DictConfig class. You can think of it as a dictionnary , when dic['key'] is accessible as the( dict.key)
 # cfg is loaded from the yaml file at path ../conf/train_model.yaml
 def launch(cfg: DictConfig):
-    train_dataset, test_dataset = load_dataset(cfg)
+    train_dataset, test_dataset = load_datasets()
 
     # Create data loaders for training and testing
     train_loader = DataLoader(train_dataset, batch_size=cfg.batch_size, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=cfg.batch_size, shuffle=False)
     # Set an experiment name, which must be unique and case-sensitive.
-    experiment = mlflow.set_experiment(cfg.name)
 
-    # Get Experiment Details
-    print(f"Experiment_id: {experiment.experiment_id}")
-    print(f"Artifact Location: {experiment.artifact_location}")
-    print(f"Tags: {experiment.tags}")
-    print(f"Lifecycle_stage: {experiment.lifecycle_stage}")
 
     mlf_logger = MLFlowLogger(
         experiment_name=cfg.name, tracking_uri="file:./mlruns", log_model=True
