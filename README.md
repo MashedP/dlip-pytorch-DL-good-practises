@@ -80,11 +80,11 @@ When we perform deep learning tasks, we often need to run multiple experiments
 
 [seeds] are important to assess reproducibility of your results. Learn how they work in pytorch [here](https://pytorch.org/docs/stable/notes/randomness.html).
 
-`requirements.txt` is an important file for reproducibility. it contains all packages required to launch your experiment. 
+`requirements.txt` is an important file for reproducibility. It contains all packages required to launch your experiment. 
 
 
 [Hydra](https://hydra.cc/docs/intro/) is a python package to handle parsing and configuration files 
-	- basé sur [OmegaConf](https://github.com/omry/omegaconf)
+	- based on [OmegaConf](https://github.com/omry/omegaconf)
 
 ## Code Packaging 
 
