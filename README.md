@@ -13,7 +13,7 @@ Have fun using this as a template and source of information for your first pract
 
 # TODO
 - [x] Packaging
-- [ ] Hydra
+- [x] Hydra
 - [ ] Mlflow
 - [ ] Pytorch Trainer
 - [ ] Pytorch Model
@@ -72,6 +72,8 @@ Have fun using this as a template and source of information for your first pract
 
 This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
+
+
 # Collaborative Work 
 
 ## Git Versioning
@@ -103,7 +105,18 @@ Common practise is to use an argparse parser. In this repository, we use the Hyd
 	- based on [OmegaConf](https://github.com/omry/omegaconf)
 
 Hydra allows you to parse arguments from the command line, to launch and log multiple experiments with different configuration easily. 
-It is very helpful when you have to perform sweeps on hyper-parameters. COnfigurations and values of hyperparameters, such as batch-size, learning rate, optimizers are stored in a yaml file, interpreted as a DictConfig object. 
+
+To run the training script, you can for example run 
+
+```python src/dlip/models/train_model.py```
+
+or with a different batch size :
+
+```python src/dlip/models/train_model.py batch_size=20```
+
+It is very helpful when you have to perform sweeps on hyper-parameters. Configurations and values of hyperparameters for training, such as batch-size, learning rate, optimizers are stored in a yaml file ```src/dlip/conf/train_model.yaml```.
+
+You can access the configuration & outputs of previously run scripts by default in the ```outputs``` folder.
 
 ## Logging experiment
 
