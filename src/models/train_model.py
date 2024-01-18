@@ -3,11 +3,14 @@ import hydra
 import mlflow
 import mlflow.pytorch
 
-
+from torch.utils.data import DataLoader
 from omegaconf import DictConfig
 ## TODO Improve and make self-sustained
 
-@hydra.main(version_base=None, config_path="conf", config_name="train")
+@hydra.main(version_base=None, config_path="../conf", config_name="train_model") 
+# This decorator add the parameter "cfg" to the launch function 
+# the cfg object is an instance of the DictConfig class. You can think of it as a dictionnary , when dic['key'] is accessible as the( dict.key)
+# cfg is loaded from the yaml file at path ../conf/train_model.yaml
 def launch(cfg: DictConfig):
     train_dataset, test_dataset = load_dataset(cfg)
 

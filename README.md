@@ -76,15 +76,28 @@ This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookie
 
 ## Configuration
 
-When we perform deep learning tasks, we often need to run multiple experiments 
 
-[seeds] are important to assess reproducibility of your results. Learn how they work in pytorch [here](https://pytorch.org/docs/stable/notes/randomness.html).
+### Seeds 
+
+*seeds* are important to assess reproducibility of your results. Learn how they work in pytorch [here](https://pytorch.org/docs/stable/notes/randomness.html).
 
 `requirements.txt` is an important file for reproducibility. it contains all packages required to launch your experiment. 
+
+### Parsing Arguments
+
+
+Common practise is to use an argparse parser. In this repository, we use the Hydra package to handle arguments & configurations.
 
 
 [Hydra](https://hydra.cc/docs/intro/) is a python package to handle parsing and configuration files 
 	- basé sur [OmegaConf](https://github.com/omry/omegaconf)
+
+Hydra allows you to parse arguments from the command line, to launch and log multiple experiments with different configuration easily. 
+It is very helpful when you have to perform sweeps on hyper-parameters. COnfigurations and values of hyperparameters, such as batch-size, learning rate, optimizers are stored in a yaml file, interpreted as a DictConfig object. 
+
+## Logging experiment
+
+MLflow, Tensorboard is the most common Experiment Tracking solution .  We chose to use [MLflow](https://www.mlflow.org/).
 
 ## Code Packaging 
 
@@ -99,3 +112,14 @@ After setting up your project, simply go to `\src` and launch
 You will be able to load the package inside the notebook. 
 
 [More info on packaging](https://packaging.python.org/en/latest/)
+
+## README
+
+A good README file provides all information for replication of the experiments. 
+
+For research code, paperwithcode guidelines are a good source of information:
+Check them [here](https://github.com/paperswithcode/releasing-research-code/tree/master)
+
+General very useful guidelines for Python [here](https://docs.python-guide.org/) 
+
+
