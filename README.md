@@ -11,6 +11,16 @@ Have fun using this as a template and source of information for your first pract
 
 *Inspired by [Solal Nathan's presentation](https://hebergement.universite-paris-saclay.fr/sepag/2023_05_24_Programming_Project_Management.pdf) on Programming project management*
 
+# TODO
+- [x] Packaging
+- [x] Hydra
+- [ ] Mlflow
+- [x] Pytorch Trainer
+- [x] Pytorch Model
+- [ ] Evaluation 
+- [x] Save and load Models from checkpoints 
+
+
 # Project Organization
 
 
@@ -62,6 +72,8 @@ Have fun using this as a template and source of information for your first pract
 
 This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
+The template by default contains code from the first exercise of Tp1. 
+
 # Collaborative Work 
 
 ## Git Versioning
@@ -93,7 +105,20 @@ Common practise is to use an argparse parser. In this repository, we use the Hyd
 	- based on [OmegaConf](https://github.com/omry/omegaconf)
 
 Hydra allows you to parse arguments from the command line, to launch and log multiple experiments with different configuration easily. 
-It is very helpful when you have to perform sweeps on hyper-parameters. COnfigurations and values of hyperparameters, such as batch-size, learning rate, optimizers are stored in a yaml file, interpreted as a DictConfig object. 
+
+To run the training script, you can for example run 
+
+```python src/dlip/models/train_model.py```
+
+or with a different batch size :
+
+```python src/dlip/models/train_model.py batch_size=20```
+
+It is very helpful when you have to perform sweeps on hyper-parameters. Configurations and values of hyperparameters for training, such as batch-size, learning rate, optimizers are stored in a yaml file ```src/dlip/conf/train_model.yaml```.
+
+You can access the configuration & outputs of previously run scripts by default in the ```outputs``` folder.
+
+More info on how to setup hydra for your projects [here](https://towardsdatascience.com/complete-tutorial-on-how-to-use-hydra-in-machine-learning-projects-1c00efcc5b9b)
 
 ## Logging experiment
 
