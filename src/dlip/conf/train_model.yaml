@@ -1,9 +1,14 @@
 
-# Training parameters 
-lr: 1e-1
-batch_size : 10
-num_epochs: 10
-# Experiment parameters 
-name: "Multi-classe Classification on Mnist"
-data_path: "/data/raw/" 
-checkpoint: "models/linear"
+# Training parameters
+train: 
+  lr: 1e-1
+  batch_size : 10
+  num_epochs: 10
+# Experiment parameters
+exp: 
+  name: "Multi-classe Classification on USPS"
+  data_path: "/data/raw/" 
+  checkpoint: "models/linear"
+# mlflow parameters
+mlflow:
+  runname: ${exp.name} # Take the value of exp.name
