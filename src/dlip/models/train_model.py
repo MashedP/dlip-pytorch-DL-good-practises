@@ -45,8 +45,7 @@ def train(num_epochs, batch_size, criterion, optimizer, model, dataset):
 # cfg is loaded from the yaml file at path ../conf/train_model.yaml
 def launch(cfg: DictConfig):
     working_dir = os.getcwd()
-    dataset = load_dataset(utils.get_original_cwd() + cfg.data_path)
-    train_set, val_set = random_split(dataset, [6000, 1291])
+    train_set, val_set = load_dataset(utils.get_original_cwd() + cfg.data_path)
     model = LinearModel(16 * 16, 10)
 
     # Use mean squared loss function
@@ -58,8 +57,11 @@ def launch(cfg: DictConfig):
 
     train(cfg.num_epochs, cfg.batch_size, criterion, optimizer, model, train_set)
     logging.info(f"Checkpoint is saved at {working_dir}")
+    
     save_model(working_dir + "/checkpoint.pt", model)
+    # You can save other artifacts from the training
 
+    
     # TODO Maybe improve the logging of the training loop ?
     # TODO Vizualisation methods ?
 

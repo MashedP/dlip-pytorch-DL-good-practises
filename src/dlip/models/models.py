@@ -21,8 +21,8 @@ class LinearModel(nn.Module):
         return outputs
 
 
-def load_model(path_checkpoint, modelClass: torch.nn.Module):
-    model = modelClass()
+def load_model(path_checkpoint, modelClass: torch.nn.Module, **kwargs):
+    model = modelClass(**kwargs)
     checkpoint = torch.load(path_checkpoint)
     model.load_state_dict(checkpoint["model_state_dict"])
 

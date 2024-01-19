@@ -1,8 +1,8 @@
 import torch
-from torch.data.utils import DataLoader
+from torch.utils.data import DataLoader
 
-# Calculate the accuracy to evaluate the model
-def accuracy(dataset, model):
+
+def accuracy(dataset, model: torch.nn.Module):
     with torch.no_grad():
         correct = 0
         total = 0

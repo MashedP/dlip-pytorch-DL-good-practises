@@ -19,10 +19,13 @@ def download_usps(path):
     """
     current_path = Path(path)
     writing_path = current_path.joinpath("USPS/")
-    url = "https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/usps.bz2"
-    r = requests.get(url, allow_redirects=True)
-    if not os.path.isdir(writing_path):
-        logging.info("Creating Folder..")
-        os.mkdir(writing_path)
-    open(writing_path.joinpath("usps.bz2"), "wb").write(r.content)
-    logging.info(f"File downloaded in {writing_path}")
+    if not os.path.exists(writing_path.joinpath("usps.bz2")):
+        url = "https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/usps.bz2"
+        r = requests.get(url, allow_redirects=True)
+        if not os.path.isdir(writing_path):
+            logging.info("Creating Folder..")
+            os.mkdir(writing_path)
+        open(writing_path.joinpath("usps.bz2"), "wb").write(r.content)
+        logging.info(f"File downloaded in {writing_path}")
+    else:
+        logging.info(f"Found already existing USPS dataset at {writing_path},exit")
