@@ -121,11 +121,11 @@ To run the training script, you can for example run
 
 or with a different batch size :
 
-```python src/dlip/models/train_model.py batch_size=20```
+```python src/dlip/models/train_model.py train.batch_size=20```
 
 or launching multiple experiment on various batch sizes :
 
-```python src/dlip/models/train_model.py --multirun batch_size=10,20,30,40,50```
+```python src/dlip/models/train_model.py --multirun train.batch_size=10,20,30,40,50```
 
 It is very helpful when you have to perform sweeps on hyperparameters. 
 
