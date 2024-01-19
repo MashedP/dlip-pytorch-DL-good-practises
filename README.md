@@ -11,7 +11,7 @@ This project will be in Python 3, using Pytorch.
 
 Have fun using this as a template and source of information for your first practical session & future projects !
 
-This template already includes code from the first exercise of TP1. Try to adapt it for the second exercise.
+This template already includes code from the first exercise of TP1 for the [course](https://www.lri.fr/~gcharpia/deeppractice/index_2024.html) of Guillaume Charpiat. Try to adapt it for the second exercise.
 
 ## Project Checklist
 
