@@ -3,22 +3,28 @@ Welcome !
 
 In this repository, you will find useful information  on good practises for Deep Learning research and developement projects.   
 
-Note that those are general guidelines, recipes that evolves with the specificity of your project. We tend to prefer open-source solutions. 
+Note that those are general guidelines, recipes that evolves with the specificity of your project. The overall philosophy is "start small and incrementally add tools to understand what you are doing".
+
+We prefer to use open-source solutions. 
 
 This project will be in Python 3, using Pytorch. 
 
 Have fun using this as a template and source of information for your first practical session & future projects !
 
+The template by default contains code from the first exercise of Tp1. Try to adapt it for the second exercise.
+
 *Inspired by [Solal Nathan's presentation](https://hebergement.universite-paris-saclay.fr/sepag/2023_05_24_Programming_Project_Management.pdf) on Programming project management*
 
 # TODO
+
 - [x] Packaging
 - [x] Hydra
-- [ ] Mlflow
+- [x] Mlflow
 - [x] Pytorch Trainer
 - [x] Pytorch Model
-- [ ] Evaluation 
+- [x] Evaluation 
 - [x] Save and load Models from checkpoints 
+- [ ] Study multiple models
 
 
 # Project Organization
@@ -69,10 +75,9 @@ Have fun using this as a template and source of information for your first pract
 
 ```
 
-
 This template is inspired by [Cookie Cutter](https://drivendata.github.io/cookiecutter-data-science/). Cookie Cutters  are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
-The template by default contains code from the first exercise of Tp1. 
+ 
 
 # Collaborative Work 
 
@@ -85,20 +90,24 @@ The template by default contains code from the first exercise of Tp1.
 
 [Git CheatSheet](https://training.github.com/downloads/github-git-cheat-sheet.pdf)
 
+## Contributing
 
-## Configuration
+For contributions, have a look at Issues on gitlab for this project. 
+
+You can fork this repo and suggest a merge request with information. Don't worry if you made a mistake/ introduced a bug, we are all here to learn ! 
 
 
-### Seeds 
+# Tools usage 
+
+
+## Seeds 
 
 *seeds* are important to assess reproducibility of your results. Learn how they work in pytorch [here](https://pytorch.org/docs/stable/notes/randomness.html).
 
-`requirements.txt` is an important file for reproducibility. It contains all packages required to launch your experiment. 
 
-### Parsing Arguments
+## Parsing Arguments
 
-
-Common practise is to use an argparse parser. In this repository, we use the Hydra package to handle arguments & configurations.
+Common practise is to use a  parser in order to modify parameters you are using from the command line. In this repository, we use the Hydra package to handle arguments & configurations.
 
 
 [Hydra](https://hydra.cc/docs/intro/) is a python package to handle parsing and configuration files 
@@ -140,7 +149,7 @@ Example : http://127.0.0.1:5000
 
 In python, the best way to load a module is to package it and install it.  There are several library for packaging code. Here we use [SetupTools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html)
 
-
+`requirements.txt` is an important file for reproducibility. It contains all packages required to launch your experiment. 
 
 After setting up your project, simply go to the root of the project and launch
 
@@ -150,19 +159,13 @@ You will be able to load the package inside the notebook.
 
 [More info on packaging](https://packaging.python.org/en/latest/)
 
-## README
 
-A good README file provides all information for replication of the experiments. 
-
-For research code, paperwithcode guidelines are a good source of information:
-Check them [here](https://github.com/paperswithcode/releasing-research-code/tree/master)
+## Python
 
 General very useful guidelines for Python [here](https://docs.python-guide.org/) 
 
 
-## Python
-
-### Environment
+## Environment
 
 It is recommended to build an environement for each of your different project. 
 However, some modules like Pytorch are taking a lot of memory. 
@@ -171,3 +174,8 @@ However, some modules like Pytorch are taking a lot of memory.
  - [Conda](https://www.anaconda.com/download/)
 
  A more advanced way for reproducibility of your code is to contenerize your application, with tools like Docker. 
+
+## Additional Guidelines & Informations 
+
+For research code, paperwithcode guidelines are a good source of information:
+Check them [here](https://github.com/paperswithcode/releasing-research-code/tree/master)
