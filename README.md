@@ -130,7 +130,7 @@ For details on setting up and using Hydra in your projects, [see here](https://t
 For tracking experiments, packages like Tensorboard,W&B or Aim exists.  MLflow is our open-source choice. To integrate it smoothly with Hydra, you can follow guidelines in this [blogpost](https://medium.com/optuna/easy-hyperparameter-management-with-hydra-mlflow-and-optuna-783730700e7d). Launch the MLflow user interface via `mlflow ui` in your terminal and view it in your browser to monitor the experiments.
 
 
-## Code Packaging 
+### Code Packaging 
 
 In python, the best way to load a module is to package it and install it.  There are several library for packaging code. Here we use [SetupTools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html)
 
