@@ -28,4 +28,4 @@ def download_usps(path):
         open(writing_path.joinpath("usps.bz2"), "wb").write(r.content)
         logging.info(f"File downloaded in {writing_path}")
     else:
-        logging.info(f"Found already existing USPS dataset at {writing_path},exit")
+        logging.info(f"Found already existing USPS dataset at {writing_path}")

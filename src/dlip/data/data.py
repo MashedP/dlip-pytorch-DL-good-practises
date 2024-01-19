@@ -1,9 +1,10 @@
 import torchvision
 from torch.utils.data import random_split
 from torchvision import transforms
-
+from dlip.data.usps import download_usps
 
 def load_dataset(path):
+    download_usps(path)
     dataset = torchvision.datasets.USPS(
         root=path + "USPS/", train=True, transform=transforms.ToTensor(), download=False
     )
