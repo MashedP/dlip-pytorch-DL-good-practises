@@ -4,3 +4,4 @@ jupyter
 matplotlib
 hydra-core
 setuptools
+mlflow

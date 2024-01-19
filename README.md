@@ -114,7 +114,13 @@ or with a different batch size :
 
 ```python src/dlip/models/train_model.py batch_size=20```
 
-It is very helpful when you have to perform sweeps on hyper-parameters. Configurations and values of hyperparameters for training, such as batch-size, learning rate, optimizers are stored in a yaml file ```src/dlip/conf/train_model.yaml```.
+or launching multiple experiment on various batch sizes :
+
+```python src/dlip/models/train_model.py --multirun batch_size=10,20,30,40,50```
+
+It is very helpful when you have to perform sweeps on hyperparameters. 
+
+Default Configurations and values of hyperparameters such as batch-size, learning rate, optimizers are stored in a yaml file ```src/dlip/conf/train_model.yaml```
 
 You can access the configuration & outputs of previously run scripts by default in the ```outputs``` folder.
 
@@ -123,6 +129,9 @@ More info on how to setup hydra for your projects [here](https://towardsdatascie
 ## Logging experiment
 
 MLflow, Tensorboard is the most common Experiment Tracking solution .  We chose to use [MLflow](https://www.mlflow.org/).
+
+We integrate mlflow with hydra following this [blogpost](https://medium.com/optuna/easy-hyperparameter-management-with-hydra-mlflow-and-optuna-783730700e7d
+)
 
 ## Code Packaging 
 
@@ -148,3 +157,14 @@ Check them [here](https://github.com/paperswithcode/releasing-research-code/tree
 General very useful guidelines for Python [here](https://docs.python-guide.org/) 
 
 
+## Python
+
+### Environment
+
+It is recommended to build an environement for each of your different project. 
+However, some modules like Pytorch are taking a lot of memory. 
+
+ - [Virtual Env](https://realpython.com/python-virtual-environments-a-primer/)
+ - [Conda](https://www.anaconda.com/download/)
+
+ A more advanced way for reproducibility of your code is to contenerize your application, with tools like Docker. 
