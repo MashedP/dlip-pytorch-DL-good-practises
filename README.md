@@ -133,13 +133,16 @@ MLflow, Tensorboard is the most common Experiment Tracking solution .  We chose 
 We integrate mlflow with hydra following this [blogpost](https://medium.com/optuna/easy-hyperparameter-management-with-hydra-mlflow-and-optuna-783730700e7d
 )
 
+Once you launched a training, you can visualize what is happening in your browser by launching ```mlflow ui``` in the terminal and opening the local link in your favorite browser Firefox 
+Example : http://127.0.0.1:5000
+
 ## Code Packaging 
 
 In python, the best way to load a module is to package it and install it.  There are several library for packaging code. Here we use [SetupTools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html)
 
 
 
-After setting up your project, simply go to `\src` and launch
+After setting up your project, simply go to the root of the project and launch
 
 ```pip install -r requirements.txt  install -e . ```
 
