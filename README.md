@@ -129,6 +129,7 @@ For details on setting up and using Hydra in your projects, [see here](https://t
 ### Experiment Logging with MLflow
 For tracking experiments, packages like Tensorboard,W&B or Aim exists.  MLflow is our open-source choice. To integrate it smoothly with Hydra, you can follow guidelines in this [blogpost](https://medium.com/optuna/easy-hyperparameter-management-with-hydra-mlflow-and-optuna-783730700e7d). Launch the MLflow user interface via `mlflow ui` in your terminal and view it in your browser to monitor the experiments.
 
+Check the Mlflow tutorial in the `notebooks` folder
 
 ### Code Packaging 
 
