@@ -76,6 +76,143 @@ This structure is inspired by [Cookiecutter Data Science](https://drivendata.git
 
  Cookie Cutters are templates of projects you can replicate and use as your own. They are great because their structure are familiar to other developper / ML engineer / Data Scientist. 
 
+## **Introduction to Slurm**
+
+Slurm is an open-source workload manager used to schedule and manage jobs on high-performance computing (HPC) clusters. It helps allocate resources like CPUs, memory, and GPUs among users and monitors job execution.
+
+In a Slurm-managed cluster:
+1. **Login Node**: Where users log in to submit jobs and manage files. Computational work should not be done here.
+2. **Compute Nodes**: Where the actual computations (jobs) take place.
+
+
+
+### **Key Slurm Commands**
+
+- `sinfo`: Displays information about the cluster's nodes and partitions.
+- `squeue`: Lists jobs in the queue.
+- `sbatch`: Submits a job script.
+- `srun`: Runs a command interactively on a compute node.
+- `scancel`: Cancels a job.
+- `sacct`: Shows job accounting information.
+
+
+
+### **Navigating the Cluster**
+
+1. **Log In**  
+   Use SSH to access the cluster's login node:
+   ```bash
+   ssh username@cluster_address
+   ```
+
+2. **Check Node and Partition Status**  
+   View the available partitions (grouped compute nodes):
+   ```bash
+   sinfo
+   ```
+
+   Output example:
+   ```
+   PARTITION  AVAIL  TIMELIMIT  NODES  STATE
+   compute    up     7-00:00:00   10   idle
+   gpu        up     7-00:00:00    5   idle
+   ```
+
+3. **Check Jobs in the Queue**  
+   See all jobs currently submitted:
+   ```bash
+   squeue
+   ```
+
+   Output example:
+   ```
+   JOBID    USER    PARTITION  STATE   TIME
+   12345    user1   compute    RUNNING 00:15:00
+   ```
+
+---
+
+### **Writing a Job Script**
+
+A **job script** defines the resources your job needs and the commands to run. Here's an example script named `job_script.slurm`:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=my_job          # Job name
+#SBATCH --output=output_%j.txt     # Output file (with Job ID)
+#SBATCH --error=error_%j.txt       # Error file (with Job ID)
+#SBATCH --time=01:00:00            # Time limit (hh:mm:ss)
+#SBATCH --partition=compute        # Partition name
+#SBATCH --nodes=1                  # Number of nodes
+#SBATCH --ntasks=4                 # Number of tasks
+#SBATCH --mem=4G                   # Memory per node
+#SBATCH --mail-type=ALL            # Mail notifications
+#SBATCH --mail-user=your_email@example.com # Email address
+
+# Run your program
+python my_script.py
+```
+
+### **Submitting a Job**
+
+Submit your job script using the `sbatch` command:
+```bash
+sbatch job_script.slurm
+```
+
+Check the job status:
+```bash
+squeue -u your_username
+```
+
+Cancel a job if needed:
+```bash
+scancel JOBID
+```
+
+
+
+### **Interactive Sessions**
+
+If you need to test or debug interactively:
+```bash
+srun --partition=compute --time=00:30:00 --ntasks=1 --mem=2G --pty bash
+```
+
+This command requests one task and 2GB of memory for a 30-minute interactive session.
+
+
+
+### **Tips for Cluster Usage**
+
+1. **Resource Requests**: Always request the resources you need to avoid overloading the cluster.
+2. **Monitoring**: Use `squeue` and `sacct` to monitor your jobs.
+3. **Efficient Use**: Avoid running computations on the login node.
+
+
+
+### **Example Workflow**
+
+1. Write a Python script (`my_script.py`):
+   ```python
+   print("Hello from the cluster!")
+   ```
+
+2. Write a Slurm job script (`job_script.slurm`).
+
+3. Submit the job:
+   ```bash
+   sbatch job_script.slurm
+   ```
+
+4. Check the job status:
+   ```bash
+   squeue -u your_username
+   ```
+
+5. Once the job completes, check the output files (`output_<JOBID>.txt`).
+
+
 ## Collaborative Work
 
 ### Version Control with Git
