@@ -5,5 +5,5 @@ matplotlib
 hydra-core
 setuptools
 mlflow==2.9.2
-sklearn # For fast dataset loading
+scikit-learn # For fast dataset loading
 numpy
