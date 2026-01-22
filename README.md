@@ -141,7 +141,7 @@ In python, the best way to load a module is to package it and install it.  There
 
 To package the project,  go to the root of the project and launch
 
-```pip install -r requirements.txt  install -e . ```
+```pip install -r requirements.txt -e . ```
 
 You will be able to load the package inside the notebook. 
 
