@@ -7,7 +7,7 @@ train:
 # Experiment parameters
 exp: 
   name: "Multi-classe Classification on USPS"
-  data_path: "/data/raw/" 
+  data_path: "/../data/raw/" 
   checkpoint: "models/linear"
   seed: 0
 # mlflow parameters
